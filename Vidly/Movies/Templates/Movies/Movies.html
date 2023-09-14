@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block contente%}
+<main class="container mt-5">
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Number in stock</th>
+            <th scope="col">Daily rate</th>
+            <th scope="col">Genre</th>
+        </tr>
+        </thead>
+
+        {% for movie in movies %}
+        <tr>
+            <td><a href="{% url 'Movies:details' movie.id %}">{{movie.title}}</a></td>
+            <td>{{movie.number_in_stock}}</td>
+            <td>{{movie.daily_rate}}</td>
+            <td>{{movie.genre}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</main>
+{% endblock %}
